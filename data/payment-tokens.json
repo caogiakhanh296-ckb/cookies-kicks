@@ -1,0 +1,47 @@
+{
+  "version": "1.0.0",
+  "receiverAccount": {
+    "accountId": "ACC_CK_MB_0988561909",
+    "accountToken": "ck_acct_mb_0988561909_v1",
+    "bankId": "MB",
+    "bankName": "MB Bank",
+    "accountNo": "0988561909",
+    "accountName": "DANG GIA KHIEM",
+    "displayName": "COOKIES KICKS",
+    "currency": "VND",
+    "supportedMethods": ["SCAN_QR", "TRANSFER_STK"]
+  },
+  "bankTokenRequest": {
+    "endpoint": "/api/payment/bank-token",
+    "method": "POST",
+    "bankCode": "MB",
+    "grantType": "account_qr_token",
+    "ttlSeconds": 900,
+    "requiredFields": ["accountToken", "amount", "orderCode"]
+  },
+  "payerAccount": {
+    "payerId": "PAYER_CHECKOUT_SESSION",
+    "payerName": "Khách hàng thanh toán",
+    "payerPhone": "09xxxxxxxx",
+    "paymentChannel": "VIETQR_OR_STK",
+    "currency": "VND"
+  },
+  "qrGenerationFlow": {
+    "endpoint": "/api/payment/qr",
+    "method": "POST",
+    "tokenSource": "receiverAccount.accountToken",
+    "allowDirectStkTransfer": true,
+    "stkInfo": {
+      "bankId": "MB",
+      "bankName": "MB Bank",
+      "accountNo": "0988561909",
+      "accountName": "DANG GIA KHIEM"
+    },
+    "steps": [
+      "1. Lấy accountToken từ receiverAccount (ck_acct_mb_0988561909_v1)",
+      "2. Gửi yêu cầu xin bankSessionToken tại POST /api/payment/bank-token cho tài khoản muốn thanh toán",
+      "3. Gọi POST /api/payment/qr bằng accountToken + bankSessionToken để tạo mã QR thanh toán",
+      "4. Khách hàng quét mã QR hoặc chuyển tiền trực tiếp bằng STK 0988561909"
+    ]
+  }
+}

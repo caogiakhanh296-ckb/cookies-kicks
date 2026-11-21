@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thanh toán — Cookie's Kicks</title>
+  <meta name="description" content="Đặt hàng và thanh toán giày chính hãng 100% New Fullbox tại Cookie's Kicks Huế." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" href="public/images/icon-192.png" />
+  <link rel="apple-touch-icon" href="public/images/icon-512.png" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Cookie's Kicks" />
+  <meta property="og:title" content="Thanh toán — Cookie's Kicks" />
+  <meta property="og:description" content="Đặt hàng và thanh toán giày chính hãng 100% New Fullbox tại Cookie's Kicks Huế." />
+  <meta property="og:url" content="https://cookieskicks-store-2026.netlify.app/checkout.html" />
+  <meta property="og:image" content="https://cookieskicks-store-2026.netlify.app/public/images/logo-black.jpg?v=7.2" />
+  <meta property="og:image:secure_url" content="https://cookieskicks-store-2026.netlify.app/public/images/logo-black.jpg?v=7.2" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1024" />
+  <meta property="og:image:height" content="1024" />
+  <meta property="og:image:alt" content="Cookie's Kicks" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Thanh toán — Cookie's Kicks" />
+  <meta name="twitter:description" content="Đặt hàng và thanh toán giày chính hãng 100% New Fullbox tại Cookie's Kicks Huế." />
+  <meta name="twitter:image" content="https://cookieskicks-store-2026.netlify.app/public/images/logo-black.jpg?v=7.2" />
+  <link rel="stylesheet" href="css/tw-prod.css?v=7.2" />
+  <link rel="stylesheet" href="css/style.css?v=7.2" />
+  <style>
+    .ck-steps { display: flex; align-items: center; }
+    .ck-step { display: flex; align-items: center; gap: 10px; flex-shrink: 0; background: none; border: 0; padding: 0; color: var(--ds-text-muted); cursor: default; text-align: left; }
+    .ck-step.is-clickable { cursor: pointer; }
+    .ck-step.is-clickable:hover .ck-step__label { text-decoration: underline; text-underline-offset: 3px; }
+    .ck-step__num { width: 34px; height: 34px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--ds-border); background: #fff; font-family: var(--ds-font-heading); font-weight: 700; font-size: 16px; color: var(--ds-text-muted); transition: background .2s, border-color .2s, color .2s; }
+    .ck-step.is-active .ck-step__num { background: var(--ds-black); border-color: var(--ds-black); color: #fff; }
+    .ck-step.is-done .ck-step__num { background: var(--ds-accent-instock); border-color: var(--ds-accent-instock); color: #fff; }
+    .ck-step__label { font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; white-space: nowrap; }
+    .ck-step.is-active .ck-step__label, .ck-step.is-done .ck-step__label { color: var(--ds-black); }
+    .ck-step__line { flex: 1; height: 2px; background: var(--ds-border); margin: 0 14px; min-width: 18px; transition: background .3s; }
+    .ck-step__line.is-done { background: var(--ds-black); }
+    @media (max-width: 639px) { .ck-step__label { display: none; } .ck-step.is-active .ck-step__label { display: inline; } .ck-step__line { margin: 0 8px; } }
+
+    .ck-sec-num { width: 30px; height: 30px; flex-shrink: 0; background: var(--ds-black); color: #fff; display: inline-flex; align-items: center; justify-content: center; font-family: var(--ds-font-heading); font-weight: 700; font-size: 16px; }
+    .ck-num { width: 24px; height: 24px; flex-shrink: 0; background: var(--ds-black); color: #fff; display: inline-flex; align-items: center; justify-content: center; font-family: var(--ds-font-price); font-size: 12px; font-weight: 700; }
+
+    .ck-opt { position: relative; display: flex; gap: 14px; align-items: flex-start; padding: 16px; border: 1px solid var(--ds-border); background: #fff; cursor: pointer; transition: border-color .12s, background .12s; }
+    .ck-opt:hover { border-color: var(--ds-black); }
+    .ck-opt.is-selected { border: 2px solid var(--ds-black); padding: 15px; background: var(--ds-card-nike); }
+    .ck-opt.is-disabled { cursor: not-allowed; opacity: .5; background: var(--ds-card-nike); }
+    .ck-opt.is-disabled:hover { border-color: var(--ds-border); }
+    .ck-opt:has(input:focus-visible) { outline: 2px solid var(--ds-black); outline-offset: 2px; }
+    .ck-opt--card { flex-direction: column; gap: 10px; height: 100%; }
+    .ck-opt__mark { width: 20px; height: 20px; flex-shrink: 0; border: 1.5px solid var(--ds-black); display: inline-flex; align-items: center; justify-content: center; margin-top: 1px; background: #fff; }
+    .ck-opt.is-selected .ck-opt__mark { border-color: var(--ds-black); background: var(--ds-black); }
+    .ck-opt.is-selected .ck-opt__mark::after { content: ''; width: 8px; height: 8px; background: #fff; }
+
+    .ck-copy { display: inline-flex; align-items: center; justify-content: center; min-width: 64px; height: 32px; padding: 0 10px; border: 1px solid var(--ds-black); background: #fff; color: var(--ds-black); font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; cursor: pointer; flex-shrink: 0; transition: background .12s, color .12s; white-space: nowrap; }
+    .ck-copy:hover, .ck-copy.is-copied { background: var(--ds-black); color: #fff; }
+
+    .ck-hold { transition: color .2s, border-color .2s; }
+    .ck-hold.is-urgent { color: var(--ds-accent-sale); border-color: var(--ds-accent-sale); animation: ck-pulse 1s ease-in-out infinite; }
+    @keyframes ck-pulse { 0%, 100% { opacity: 1; } 50% { opacity: .5; } }
+
+    .ck-qty-btn { width: 32px; height: 32px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; }
+    .ck-qty-btn:hover { background: var(--ds-card-nike); }
+
+    #sumBody { display: none; }
+    #sumBody.is-open { display: block; }
+    @media (min-width: 1024px) { #sumBody { display: block; } }
+    #sumChev { transition: transform .2s ease; }
+    #sumToggle[aria-expanded="true"] #sumChev { transform: rotate(180deg); }
+
+    .ck-panel-in { animation: ck-panel-in .35s ease both; }
+    @keyframes ck-panel-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+  </style>
+</head>
+<body data-page="checkout" data-minimal-header data-no-drawer class="font-sans text-ink bg-white">
+  <div id="ck-header"></div>
+
+  <main class="min-h-[70vh]">
+    
+    <section id="emptyState" class="hidden ck-container py-20 lg:py-28 text-center">
+      <p class="ck-eyebrow text-brand mb-4">Thanh toán</p>
+      <h1 class="ck-display text-6xl sm:text-7xl lg:text-8xl mb-6">Giỏ hàng trống</h1>
+      <p class="text-muted text-lg max-w-md mx-auto mb-10">Bạn chưa có sản phẩm nào để thanh toán. Khám phá ngay những đôi Running &amp; Basketball chính hãng tại Cookie's Kicks nhé.</p>
+      <a href="catalog.html" class="ck-btn">Mua sắm ngay <svg class="ck-arrow" viewBox="0 0 24 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M0 7h22M16 1l6 6-6 6"/></svg></a>
+    </section>
+
+    
+    <section id="flow" class="hidden ck-container py-8 lg:py-12">
+      <a href="catalog.html" class="ck-link inline-block mb-6">← Tiếp tục mua sắm</a>
+      <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-6">
+        <h1 class="ck-display text-6xl sm:text-7xl">Thanh toán</h1>
+        <nav aria-label="Các bước thanh toán" class="w-full lg:max-w-2xl">
+          <ol class="ck-steps">
+            <li class="contents"><button type="button" class="ck-step" data-step="1"><span class="ck-step__num">1</span><span class="ck-step__label">Thông tin giao hàng</span></button></li>
+            <li class="ck-step__line" aria-hidden="true"></li>
+            <li class="contents"><button type="button" class="ck-step" data-step="2"><span class="ck-step__num">2</span><span class="ck-step__label">Xác nhận đơn</span></button></li>
+            <li class="ck-step__line" aria-hidden="true"></li>
+            <li class="contents"><button type="button" class="ck-step" data-step="3"><span class="ck-step__num">3</span><span class="ck-step__label">Thanh toán</span></button></li>
+          </ol>
+        </nav>
+      </div>
+      <div class="ck-progress mb-8 lg:mb-10"><span id="stepBar" style="width:33.33%"></span></div>
+
+      <div class="grid lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] gap-6 lg:gap-12 xl:gap-16">
+        
+        <div class="min-w-0">
+          
+          <div data-step-panel="1">
+            
+            <div id="ck-checkout-auth-bar" class="mb-6"></div>
+
+            <div class="ck-substeps mb-8" id="substepNav" aria-label="Tiến độ điền thông tin">
+              <button type="button" class="ck-substep is-current" data-substep="1"><span class="ck-substep__dot" data-substep-dot="1">1</span><span>Người nhận</span></button>
+              <span class="ck-substep__bar" data-substep-bar="1"></span>
+              <button type="button" class="ck-substep" data-substep="2"><span class="ck-substep__dot" data-substep-dot="2">2</span><span>Địa chỉ</span></button>
+              <span class="ck-substep__bar" data-substep-bar="2"></span>
+              <button type="button" class="ck-substep" data-substep="3"><span class="ck-substep__dot" data-substep-dot="3">3</span><span>Vận chuyển</span></button>
+              <span class="ck-substep__bar" data-substep-bar="3"></span>
+              <button type="button" class="ck-substep" data-substep="4"><span class="ck-substep__dot" data-substep-dot="4">4</span><span>Thanh toán</span></button>
+            </div>
+
+            <form id="step1Form" novalidate autocomplete="on">
+              
+              <div class="mb-10" id="sec-recipient" data-substep-sec="1">
+                <div class="flex items-center justify-between gap-3 mb-5">
+                  <h2 class="flex items-center gap-3"><span class="ck-sec-num" data-sec-badge="1">1</span><span class="ck-title text-2xl sm:text-3xl">Thông tin người nhận</span></h2>
+                  <span class="text-xs font-semibold text-muted" data-sec-status="1">Bước 1 / 4</span>
+                </div>
+                <div class="grid sm:grid-cols-2 ck-form-grid">
+                  <div class="sm:col-span-2">
+                    <label for="f-name" class="ck-field-label">Họ và tên người nhận <span class="text-sale">*</span></label>
+                    <input id="f-name" name="name" class="ck-input" autocomplete="name" placeholder="VD: Nguyễn Văn A" maxlength="80" />
+                    <p id="err-name" class="ck-error-text hidden" role="alert"></p>
+                  </div>
+                  <div>
+                    <label for="f-phone" class="ck-field-label">Số điện thoại liên hệ <span class="text-sale">*</span></label>
+                    <input id="f-phone" name="phone" type="tel" inputmode="tel" data-mask="phone" class="ck-input tabular" autocomplete="tel" placeholder="09xx xxx xxx (VD: 0988 561 909)" maxlength="16" />
+                    <p id="err-phone" class="ck-error-text hidden" role="alert"></p>
+                  </div>
+                  <div>
+                    <label for="f-email" class="ck-field-label">Email nhận hoá đơn <span class="text-muted normal-case font-normal">(không bắt buộc)</span></label>
+                    <input id="f-email" name="email" type="email" class="ck-input" autocomplete="email" placeholder="tenban@gmail.com" maxlength="120" />
+                    <p id="err-email" class="ck-error-text hidden" role="alert"></p>
+                  </div>
+                </div>
+                <div class="mt-6 flex justify-end">
+                  <button type="button" class="ck-btn ck-btn--sm" data-next-substep="2">Tiếp tục nhập Địa chỉ giao hàng →</button>
+                </div>
+              </div>
+
+              
+              <div class="mb-10" id="sec-address" data-substep-sec="2">
+                <div class="flex items-center justify-between gap-3 mb-5">
+                  <h2 class="flex items-center gap-3"><span class="ck-sec-num" data-sec-badge="2">2</span><span class="ck-title text-2xl sm:text-3xl">Địa chỉ giao hàng</span></h2>
+                  <span class="text-xs font-semibold text-muted" data-sec-status="2">Bước 2 / 4</span>
+                </div>
+                <div class="grid md:grid-cols-3 ck-form-grid">
+                  <div>
+                    <label for="f-province" class="ck-field-label">Tỉnh / Thành phố <span class="text-sale">*</span></label>
+                    <select id="f-province" name="province" class="ck-select" data-searchable="Gõ tìm hoặc cuộn chọn Tỉnh/TP…"></select>
+                    <p id="err-province" class="ck-error-text hidden" role="alert"></p>
+                  </div>
+                  <div>
+                    <label for="f-district" class="ck-field-label">Quận / Huyện <span class="text-sale">*</span></label>
+                    <select id="f-district" name="district" class="ck-select" data-searchable="Gõ tìm hoặc cuộn chọn Quận/Huyện…"></select>
+                    <p id="err-district" class="ck-error-text hidden" role="alert"></p>
+                  </div>
+                  <div>
+                    <label for="f-ward" class="ck-field-label">Phường / Xã <span class="text-sale">*</span></label>
+                    <input id="f-ward" name="ward" list="f-ward-list" class="ck-input" autocomplete="address-level3" placeholder="Gõ tìm hoặc chọn Phường / Xã…" maxlength="80" />
+                    <datalist id="f-ward-list"></datalist>
+                    <p id="err-ward" class="ck-error-text hidden" role="alert"></p>
+                  </div>
+                  <div class="md:col-span-3">
+                    <label for="f-street" class="ck-field-label">Số nhà, tên đường <span class="text-sale">*</span></label>
+                    <input id="f-street" name="street" class="ck-input" autocomplete="street-address" placeholder="VD: 128 Bà Triệu, Kiệt 15…" maxlength="160" />
+                    <p id="err-street" class="ck-error-text hidden" role="alert"></p>
+                  </div>
+                  <div class="md:col-span-3">
+                    <label for="f-note" class="ck-field-label">Ghi chú giao hàng <span class="text-muted normal-case font-normal">(không bắt buộc)</span></label>
+                    <textarea id="f-note" name="note" class="ck-textarea" rows="3" maxlength="300" placeholder="VD: Giao giờ hành chính, gọi trước khi giao…"></textarea>
+                  </div>
+                </div>
+                <div class="mt-6 flex justify-between gap-3">
+                  <button type="button" class="ck-btn ck-btn--ghost ck-btn--sm" data-next-substep="1">← Quay lại Người nhận</button>
+                  <button type="button" class="ck-btn ck-btn--sm" data-next-substep="3">Tiếp tục chọn Vận chuyển →</button>
+                </div>
+              </div>
+
+              
+              <div class="mb-10" id="sec-carrier" data-substep-sec="3">
+                <div class="flex items-center justify-between gap-3 mb-5">
+                  <h2 class="flex items-center gap-3"><span class="ck-sec-num" data-sec-badge="3">3</span><span class="ck-title text-2xl sm:text-3xl">Đơn vị vận chuyển</span></h2>
+                  <span class="text-xs font-semibold text-muted" data-sec-status="3">Bước 3 / 4</span>
+                </div>
+                <div id="freeShip" class="bg-sky px-4 py-4 mb-3"></div>
+                <div id="carrierList" class="grid gap-3" role="radiogroup" aria-label="Đơn vị vận chuyển"></div>
+              </div>
+
+              
+              <div class="mb-10" id="sec-pay" data-substep-sec="4">
+                <div class="flex items-center justify-between gap-3 mb-5">
+                  <h2 class="flex items-center gap-3"><span class="ck-sec-num" data-sec-badge="4">4</span><span class="ck-title text-2xl sm:text-3xl">Phương thức thanh toán</span></h2>
+                  <span class="text-xs font-semibold text-muted" data-sec-status="4">Bước 4 / 4</span>
+                </div>
+                <div id="payList" class="grid sm:grid-cols-3 gap-3" role="radiogroup" aria-label="Phương thức thanh toán"></div>
+                <div id="payNote" class="mt-3 text-sm text-ink bg-tile px-4 py-3"></div>
+              </div>
+
+              <button type="submit" class="ck-btn ck-btn--block ck-form-submit">Kiểm tra &amp; Xác nhận đơn hàng <svg class="ck-arrow" viewBox="0 0 24 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M0 7h22M16 1l6 6-6 6"/></svg></button>
+              <p class="text-xs text-muted mt-4">Thông tin của bạn được lưu trên thiết bị này để lần sau thanh toán nhanh hơn.</p>
+            </form>
+          </div>
+
+          
+          <div data-step-panel="2" id="step2" class="hidden"></div>
+
+          
+          <div data-step-panel="3" id="step3" class="hidden"></div>
+        </div>
+
+        
+        <aside class="order-first lg:order-none lg:sticky lg:top-20 lg:self-start w-full min-w-0" aria-label="Tóm tắt đơn hàng">
+          <button type="button" id="sumToggle" class="lg:hidden w-full flex items-center justify-between gap-3 px-4 py-4 bg-sky border border-line" aria-expanded="false" aria-controls="sumBody">
+            <span class="flex items-center gap-2 font-bold uppercase tracking-wider text-sm">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 8h14l-1 13H6L5 8z"/><path d="M9 8V6a3 3 0 016 0v2"/></svg>
+              <span id="sumToggleLabel">Xem đơn hàng</span>
+              <svg id="sumChev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </span>
+            <span class="ck-title text-2xl tabular" id="sumToggleTotal"></span>
+          </button>
+
+          <div id="sumBody" class="border border-line border-t-0 lg:border-t p-5 sm:p-6 bg-white">
+            <div class="flex items-baseline justify-between gap-3 mb-1">
+              <h2 class="ck-title text-3xl">Đơn hàng <span id="sumCount" class="text-muted text-xl align-middle"></span></h2>
+              <span id="sumLock" class="hidden ck-tag ck-tag--ink">Đã khoá</span>
+            </div>
+            <div id="sumItems"></div>
+
+            <div id="promoBox" class="py-5 border-t border-line">
+              <div id="promoFormWrap">
+                <label for="promoInput" class="ck-field-label">Mã ưu đãi / Freeship</label>
+                <form id="promoForm" class="flex gap-2" novalidate>
+                  <input id="promoInput" class="ck-input uppercase min-w-0 flex-1" placeholder="VD: HOMIEWITHCOOKIE" autocomplete="off" maxlength="20" aria-describedby="promoErr" />
+                  <button class="ck-btn ck-btn--dark flex-shrink-0" type="submit">Áp dụng mã</button>
+                </form>
+                <p id="promoErr" class="ck-error-text hidden" role="alert"></p>
+              </div>
+              <div id="promoApplied" class="hidden">
+                <div class="flex items-center justify-between gap-3 bg-sky border border-brand px-4 py-3">
+                  <div class="min-w-0">
+                    <p class="text-sm font-bold uppercase tracking-wider"><span class="text-brand">✓</span> Mã <span id="promoCode" class="ck-mono"></span> đã áp dụng</p>
+                    <p class="text-xs text-muted mt-0.5" id="promoDesc"></p>
+                  </div>
+                  <button type="button" id="promoRemove" class="ck-link flex-shrink-0">Gỡ mã</button>
+                </div>
+              </div>
+            </div>
+
+            <div id="sumTotals" class="space-y-2.5 border-t border-line pt-5"></div>
+
+            <ul class="grid grid-cols-2 gap-px bg-line border border-line mt-6 text-[12px] font-bold uppercase tracking-wide">
+              <li class="bg-white p-3 flex items-center gap-2"><svg class="text-brand flex-shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l8 3v6c0 5-3.5 9.5-8 11-4.5-1.5-8-6-8-11V5l8-3z"/><path d="M8.5 12l2.5 2.5L16 9.5"/></svg>100% Authentic</li>
+              <li class="bg-white p-3 flex items-center gap-2"><svg class="text-brand flex-shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M1 5h14v11H1zM15 9h4l4 4v3h-8"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg>Giao GHN toàn quốc</li>
+              <li class="bg-white p-3 flex items-center gap-2"><svg class="text-brand flex-shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4v6h6"/><path d="M20 20v-6h-6"/><path d="M5.5 15A7.5 7.5 0 0018.4 17M18.5 9A7.5 7.5 0 005.6 7"/></svg><button type="button" data-open-policy="size" class="text-left hover:underline">Lỗi NSX đổi 1:1 (10–12N)</button></li>
+              <li class="bg-white p-3 flex items-center gap-2"><svg class="text-brand flex-shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="11" width="16" height="10"/><path d="M8 11V7a4 4 0 018 0v4"/></svg>Thanh toán bảo mật</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    
+    <section id="success" class="hidden" aria-live="polite"></section>
+  </main>
+
+  <div id="ck-footer"></div>
+
+  <script src="js/vietnam-addresses.js?v=7.1"></script>
+  <script src="js/data.js?v=7.1"></script>
+  <script src="js/cart.js?v=7.1"></script>
+  <script src="src/core/state.js?v=7.1"></script>
+  <script src="src/core/logic.js?v=7.1"></script>
+  <script src="src/core/component.js?v=7.1"></script>
+  <script src="src/db/state.js?v=7.1"></script>
+  <script src="src/db/logic.js?v=7.1"></script>
+  <script src="src/db/component.js?v=7.1"></script>
+  <script src="src/api/state.js?v=7.1"></script>
+  <script src="src/api/logic.js?v=7.1"></script>
+  <script src="src/api/component.js?v=7.1"></script>
+  <script src="src/auth/state.js?v=7.1"></script>
+  <script src="src/auth/logic.js?v=7.1"></script>
+  <script src="src/auth/component.js?v=7.1"></script>
+  <script src="src/ui/state.js?v=7.1"></script>
+  <script src="src/ui/logic.js?v=7.1"></script>
+  <script src="src/ui/component.js?v=7.1"></script>
+  <script src="src/jobs/state.js?v=7.1"></script>
+  <script src="src/jobs/logic.js?v=7.1"></script>
+  <script src="src/jobs/component.js?v=7.1"></script>
+  <script src="features/checkout/state.js?v=7.1"></script>
+  <script src="features/checkout/logic.js?v=7.1"></script>
+  <script src="features/checkout/component.js?v=7.1"></script>
+</body>
+</html>

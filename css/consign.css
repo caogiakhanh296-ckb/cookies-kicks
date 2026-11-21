@@ -1,0 +1,63 @@
+html.cs-smooth-scroll { scroll-behavior: auto; }
+body[data-page="consign"] { background: #f5f5f2; color: #191919; }
+body[data-page="consign"] main { font-family: 'Be Vietnam Pro', Arial, sans-serif; }
+body[data-page="consign"] main h1 { font-size: clamp(30px, 3.4vw, 48px); line-height: 1.18; letter-spacing: -.035em; font-weight: 650; text-transform: none; }
+body[data-page="consign"] main h2 { font-size: clamp(24px, 2.5vw, 34px); line-height: 1.3; font-weight: 600; text-transform: none; }
+body[data-page="consign"] main > section:first-child { padding: 48px 0; }
+body[data-page="consign"] main > section:first-child .ck-container > .grid { gap: 24px; }
+body[data-page="consign"] a[href="#consign-form-section"] { background: #fff !important; color: #171717 !important; border: 1px solid #fff; min-height: 48px; padding: 12px 20px; line-height: 1.5; white-space: normal; }
+body[data-page="consign"] a[href="#consign-form-section"]:hover { background: #eee8dc !important; }
+body[data-page="consign"] #btn-hero-my-locker { color: #fff !important; background: transparent; border: 1px solid #888; min-height: 48px; }
+body[data-page="consign"] #btn-hero-my-locker:hover { background: #fff; color: #171717 !important; }
+body[data-page="consign"] main button:focus-visible,
+body[data-page="consign"] main a:focus-visible { outline: 3px solid #b36b21; outline-offset: 3px; }
+#consign-section { padding-top: 40px; padding-bottom: 56px; }
+#consign-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin-top: 24px; }
+#consign-grid .cs-card { min-width: 0; border: 1px solid #dddcd7; background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 3px 12px #00000004; }
+#consign-grid .cs-media { background: #eeede9; position: relative; }
+#consign-grid [id^="media-stage-"] { aspect-ratio: 4 / 3; position: relative; }
+#consign-grid [id^="media-stage-"] > img { width: 100%; height: 100%; object-fit: contain; padding: 24px; }
+#consign-grid [id^="media-stage-"] > img:not(.hidden) { display: block; }
+.cs-missing-photo { height: 100%; min-height: 180px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; color: #686760; background: #eeede9; font-size: 13px; }
+.cs-missing-photo span { font-size: 11px; color: #85837a; }
+#consign-grid .cs-badges { display: flex; flex-wrap: wrap; gap: 6px; padding: 12px 16px; position: static; background: #fff; }
+#consign-grid .cs-badge { display: inline-flex; align-items: center; padding: 5px 8px; border-radius: 5px; font: 500 11px/1.5 'Be Vietnam Pro', Arial, sans-serif; letter-spacing: 0; text-transform: none; color: #285646; background: #edf5ef; box-shadow: none; }
+#consign-grid .cs-badge--mode { color: #655129; background: #f6f0e4; }
+#consign-grid .cs-card-body { display: flex; flex-direction: column; gap: 20px; padding: 20px; }
+#consign-grid h3 { font-family: 'Be Vietnam Pro', Arial, sans-serif !important; font-size: 17px; line-height: 1.5; font-weight: 600; letter-spacing: -.02em; text-transform: none; overflow-wrap: anywhere; min-height: 51px; margin: 10px 0; }
+#consign-grid .cs-card-body > div:first-child { display: grid; gap: 8px; }
+#consign-grid .cs-card-body > div:last-child { margin-top: auto; padding-top: 16px; border-top: 1px solid #e6e5df; }
+#consign-grid .btn-thumb { width: 44px; height: 44px; border-radius: 4px; overflow: hidden; }
+#consign-grid .btn-thumb img { width: 100%; height: 100%; object-fit: cover; }
+#consign-grid .btn-deposit, #consign-grid .btn-trade { min-height: 44px; padding: 10px; font-size: 12px; line-height: 1.5; font-weight: 600; letter-spacing: 0; text-transform: none; border-radius: 5px; }
+#consign-grid .btn-deposit { background: #202020; color: white; }
+#consign-grid .btn-trade { background: white; color: #202020; border: 1px solid #b5b4ae; }
+#consign-grid .cs-card-body .grid { display: grid; gap: 8px; margin-top: 12px; }
+#consign-grid .cs-card-body .grid-cols-2 { grid-template-columns: 1fr 1fr; }
+#consign-grid .cs-card-body p { margin-bottom: 6px; }
+#consign-form-section { scroll-margin-top: 80px; padding: 56px 0; background: #eeede8; border-top: 1px solid #dad8d0; }
+#consign-form-section > .ck-container { max-width: 1040px; }
+#consign-form-section > .ck-container > div:first-child { margin: 0 auto 32px; text-align: center; }
+#consign-upload-form { background: white; border: 1px solid #dedcd4; border-radius: 14px; padding: 32px; box-shadow: 0 6px 24px #28230f05; }
+#consign-upload-form > div { padding-bottom: 24px; margin-bottom: 24px; border-bottom: 1px solid #e8e6df; }
+#consign-upload-form h3 { display: flex; align-items: center; gap: 10px; font-family: inherit; font-size: 14px; font-weight: 600; line-height: 1.6; letter-spacing: 0; text-transform: none; margin-bottom: 20px; }
+#consign-upload-form h3 > span:first-child { min-width: 24px; min-height: 24px; display: inline-flex; align-items: center; justify-content: center; }
+#consign-upload-form label { font-size: 12px; font-weight: 500; letter-spacing: 0; line-height: 1.6; text-transform: none; }
+#deposit-modal.is-open,
+#trade-modal.is-open,
+#my-locker-modal.is-open { transition: opacity 0.2s ease, visibility 0s; }
+#consign-upload-form input:not([type="checkbox"]):not([type="file"]), #consign-upload-form select, #consign-upload-form textarea { display: block; width: 100%; border: 1px solid #d5d4cd; border-radius: 6px; padding: 12px; background: #fafaf8; font: 400 14px/1.5 'Be Vietnam Pro', Arial, sans-serif; color: #202020; margin-top: 6px; min-height: 46px; }
+#consign-upload-form input:focus, #consign-upload-form select:focus, #consign-upload-form textarea:focus { outline: 2px solid #b08048; outline-offset: 1px; background: white; }
+#consign-upload-form .grid { display: grid; gap: 20px; }
+#cs-photos-container { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+#cs-photos-container > div { min-width: 0; }
+#consign-upload-form p { line-height: 1.7; }
+#cs-fee-breakdown { background: #f6f5f0; padding: 20px; border: 1px solid #dedbd1; border-radius: 8px; }
+#btn-submit-consign { min-height: 52px; width: 100%; color: white; background: #202020; border-radius: 6px; font-size: 14px; font-weight: 600; letter-spacing: 0; }
+@media (min-width: 640px) { #consign-upload-form .sm\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 1000px) { #consign-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; } #cs-photos-container { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) { #consign-grid { grid-template-columns: minmax(0, 1fr); } #consign-upload-form { padding: 20px 16px; } #consign-filter-bar > div { display: flex; flex-wrap: wrap; gap: 12px; } #consign-filter-bar { position: static; } body[data-page="consign"] main > section:first-child { padding: 32px 0; } #consign-form-section { padding: 32px 0; } }
+
+body[data-page="consign"] .cs-hero-brand { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; color: #fff; margin-top: 8px; }
+body[data-page="consign"] .cs-hero-logo { display: block; width: auto; height: 1em; max-width: 38vw; object-fit: contain; flex: 0 0 auto; background: transparent; border: 0; box-shadow: none; align-self: center; }
+
